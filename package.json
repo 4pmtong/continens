@@ -1,0 +1,29 @@
+{
+  "name": "continens-UI",
+  "version": "0.0.1",
+  "description": "",
+  "repository": "ssh://gitlab@git.garena.com:2222/shopee-data/continensui.git",
+  "main": "",
+  "keywords": [
+    "shopee",
+    "UI"
+  ],
+  "scripts": {
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
+  },
+  "author": "ChenTong",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@storybook/react": "^5.0.8",
+    "@storybook/addon-actions": "^5.0.8",
+    "@storybook/addon-links": "^5.0.8",
+    "@storybook/addons": "^5.0.8",
+    "babel-loader": "^8.0.5"
+  }
+}
