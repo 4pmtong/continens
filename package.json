@@ -20,10 +20,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
-    "@storybook/react": "^5.0.8",
     "@storybook/addon-actions": "^5.0.8",
+    "@storybook/addon-knobs": "^5.0.8",
     "@storybook/addon-links": "^5.0.8",
+    "@storybook/addon-notes": "^5.0.8",
     "@storybook/addons": "^5.0.8",
-    "babel-loader": "^8.0.5"
+    "@storybook/react": "^5.0.8",
+    "babel-loader": "^8.0.5",
+    "storybook-readme": "^5.0.2"
   }
 }

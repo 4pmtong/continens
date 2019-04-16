@@ -1,4 +1,7 @@
-import { configure } from '@storybook/react';
+import { addDecorator, addParameters,configure } from '@storybook/react';
+import { addReadme } from 'storybook-readme';
+
+addDecorator(addReadme);
 
 const req = require.context('../stories', true, /.stories.js$/);
 

@@ -4,6 +4,8 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Task from '../lib/Task';
+import notes1 from './notes/task.md';
+import sidebar from './notes/task1.md';
 
 export const task = {
   id: '1',
@@ -18,6 +20,15 @@ export const actions = {
 };
 
 storiesOf('Task', module)
+  .addParameters({
+    readme: {
+      sidebar: sidebar,
+    },
+  })
   .add('default', () => <Task task={task} {...actions} />)
   .add('pinned', () => <Task task={{ ...task, state: 'TASK_PINNED' }} {...actions} />)
-  .add('archived', () => <Task task={{ ...task, state: 'TASK_ARCHIVED' }} {...actions} />);
+  .add('archived', () => 
+    <Task task={{ ...task, state: 'TASK_ARCHIVED' }} {...actions} />
+  , { notes: notes1, readme: {
+    sidebar: notes1,
+  } });
