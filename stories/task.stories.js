@@ -3,7 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import Task from '../lib/Task';
+import Task from '../components/Task/index';
 import notes1 from './notes/task.md';
 import sidebar from './notes/task1.md';
 

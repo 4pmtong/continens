@@ -1,0 +1,6 @@
+{
+  "index": "./components/index.js",
+  "Task": "./components/Task/index.js",
+  "StateFulReactButton": "./components/StateFulReactButton/index.js",
+  "StateLessReactButton": "./components/StateLessReactButton/index.js"
+}

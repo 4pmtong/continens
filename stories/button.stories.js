@@ -7,8 +7,8 @@ import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 import {muiTheme} from 'storybook-addon-material-ui';
 
 import { Button } from '@storybook/react/demo';
-import StateFulReactButton from '../lib/StateFulReactButton';
-import StatelessReactButton from '../lib/StatelessReactButton';
+import StateFulReactButton from '../components/StateFulReactButton/index';
+import StateLessReactButton from '../components/StateLessReactButton/index';
 
 storiesOf('Button', module)
   .addDecorator(withKnobs)
@@ -24,8 +24,8 @@ storiesOf('Button', module)
   .add('StateFulReactButton', () => 
     <StateFulReactButton handleOnclick={action('clicked')} /> 
   )
-  .add('StatelessReactButton', () => 
-    <StatelessReactButton handleOnclick={action('clicked')} /> 
+  .add('StateLessReactButton', () => 
+    <StateLessReactButton handleOnclick={action('clicked')} /> 
   ).add('as dynamic variables', () => {
     const name = text('Name', 'Arunoda Susiripala');
     const age = number('Age', 89);
