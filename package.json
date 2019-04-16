@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "repository": "ssh://gitlab@git.garena.com:2222/shopee-data/continensui.git",
-  "main": "",
+  "main": "./lib/index.js",
   "keywords": [
     "shopee",
     "UI"
