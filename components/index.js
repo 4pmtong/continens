@@ -1,3 +1,9 @@
-export { default as Task } from './Task/index';
-export { default as StateFulReactButton } from './StateFulReactButton/index';
-export { default as StateLessReactButton } from './StateLessReactButton/index';
+import Task from './Task/index';
+import StateFulReactButton from './StateFulReactButton/index';
+import StateLessReactButton from './StateLessReactButton/index';
+
+export default {
+  Task,
+  StateFulReactButton,
+  StateLessReactButton
+};
