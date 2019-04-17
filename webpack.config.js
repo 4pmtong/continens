@@ -11,7 +11,7 @@ module.exports = {
   output: {
     path: __dirname + '/lib',
     filename: '[name].js',
-    publicPath: '/lib/',
+    // publicPath: '/lib/',
     library: 'continens-UI',
     libraryTarget: 'umd'
   },
