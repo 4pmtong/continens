@@ -1,3 +1,6 @@
+/**
+ * 
+
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
@@ -32,3 +35,5 @@ storiesOf('Task', module)
   , { notes: notes1, readme: {
     sidebar: notes1,
   } });
+
+*/
