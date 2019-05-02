@@ -1,3 +1,6 @@
+/**
+ * 
+
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
@@ -34,3 +37,5 @@ storiesOf('Button', module)
     const content = `I am ${name} and I'm ${age} years old.`;
     return (<div>{content}<br/>Shopee: {shopee ? 'yes' : 'no'}</div>);
   });
+
+*/

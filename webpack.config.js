@@ -18,7 +18,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(js|jsx)?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -67,12 +67,21 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
   ],
-  externals: {
-    lodash: {
-      commonjs: 'lodash',
-      commonjs2: 'lodash',
-      amd: 'lodash',
-      root: '_'
-    }
-  }
+  externals: [
+    {
+      react: { 
+        root: 'React', 
+        commonjs2: './react', 
+        commonjs: ['./react'], 
+        amd: 'react', 
+      }, 
+      'react-dom': { 
+        root: 'ReactDOM', 
+        commonjs2: './react-dom', 
+        commonjs: ['./react-dom'], 
+        amd: 'react-dom', 
+      }
+    },
+    /@material-ui\/core\/.*/
+  ], 
 };
