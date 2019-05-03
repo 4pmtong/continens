@@ -6,7 +6,7 @@ import { withKnobs, text, boolean, number, object, array } from '@storybook/addo
 
 import Header from '../components/Header';
 
-import SelectCountry from '../exa/Select';
+import SelectCountry from '../extra/Select';
 
 
 storiesOf('Header', module)
