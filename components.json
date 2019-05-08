@@ -1,4 +1,4 @@
 {
   "index": "./components/index.js",
-  "Header": "./components/Header/index.jsx"
+  "Header": "./components/Header"
 }
