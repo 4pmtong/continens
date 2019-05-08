@@ -15,8 +15,29 @@ module.exports = {
     library: 'continens-UI',
     libraryTarget: 'umd'
   },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"]
+  },
   module: {
     rules: [
+      {
+        test: /\.(ts|tsx)?$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-react'],
+              plugins: ['wildcard', [
+                '@babel/plugin-transform-runtime', {
+                  'regenerator': true
+                }
+              ], "styled-jsx/babel"],
+            },
+          },
+          'ts-loader'
+        ],
+        exclude: /node_modules/
+      },
       {
         test: /\.(js|jsx)?$/,
         exclude: /node_modules/,
@@ -35,6 +56,10 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
+      },
+      { 
+        test: /\.scss$/, 
+        loaders: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,

@@ -11,6 +11,11 @@ import SelectCountry from '../extra/Select';
 
 storiesOf('Header', module)
   .addDecorator(withKnobs)
+  .addParameters({
+    options: {
+      panelPosition: 'bottom'
+    },
+  })
   .add('basic', () => {
     const user = object('user', {
       userName: 'tong.chen'
@@ -28,6 +33,7 @@ storiesOf('Header', module)
         user={user}
         avatarMenus={avatarMenus}
         onClickAvatarItem={action('onClickAvatarItem')}
+        onClickMenuIcon={action('onClickMenuIcon')}
       />
     );
   }).add('with select', () => {
@@ -49,6 +55,7 @@ storiesOf('Header', module)
         user={user}
         avatarMenus={avatarMenus}
         onClickAvatarItem={action('onClickAvatarItem')}
+        onClickMenuIcon={action('onClickMenuIcon')}
       >
         <SelectCountry 
           countries={countries}
