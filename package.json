@@ -11,7 +11,7 @@
   "scripts": {
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "build": "NODE_ENV=production npx webpack --config webpack.config.js",
+    "build": "NODE_ENV=production TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" npx webpack --config webpack.config.js",
     "tsc": "tsc",
     "type-check": "tsc --noEmit"
   },
