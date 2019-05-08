@@ -1,4 +1,4 @@
-# UI for shopee data
+# A storybook with typescript styled-jsx
 
 > insight通用组件库，基于material-ui，用storybook管理，可视化开发调试
 
