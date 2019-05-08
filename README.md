@@ -1,1 +1,1 @@
-UI for shopee data
+A storybook with typescript styled-jsx
