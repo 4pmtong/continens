@@ -1,8 +1,12 @@
-import common from './themeCommon';
+import common from "./themeCommon";
 
-const DefaultTheme: object = {
+declare type ThemeObject = {
+  [propName: string]: string;
+};
+
+const DefaultTheme: ThemeObject = {
   ...common,
-  primaryColor: '#2d72d9',
-  headerHeight: '3.75rem'
-}
+  primaryColor: "#2d72d9",
+  headerHeight: "3.75rem"
+};
 export default DefaultTheme;

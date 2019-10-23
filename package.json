@@ -2,7 +2,6 @@
   "name": "continens-UI",
   "version": "0.0.1",
   "description": "",
-  "repository": "ssh://gitlab@git.garena.com:2222/shopee-data/continensui.git",
   "main": "./lib/index.js",
   "keywords": [
     "shopee",
@@ -13,6 +12,7 @@
     "build-storybook": "build-storybook -s public",
     "build": "NODE_ENV=production TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" npx webpack --config webpack.config.js",
     "tsc": "tsc",
+    "tsc:build": "rm -rf ./lib && tsc && rm -f ./lib/**/proptype.js",
     "type-check": "tsc --noEmit"
   },
   "author": "ChenTong",

@@ -2,7 +2,7 @@
   "compilerOptions": {
     "outDir": "lib",
     "module": "es2015",
-    "target": "es3",
+    "target": "es5",
     "lib": ["es5", "es6", "es7", "es2017", "dom"],
     "sourceMap": false,
     "allowJs": false,
@@ -14,7 +14,7 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
-    "strictNullChecks": true,
+    "strictNullChecks": false,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "declaration": false,
