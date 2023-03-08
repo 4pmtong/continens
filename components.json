@@ -1,5 +1,0 @@
-{
-  "index": "./components/index.js",
-  "Header": "./components/Header",
-  "TableScroll": "./components/TableScroll"
-}

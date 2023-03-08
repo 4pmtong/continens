@@ -1,60 +1,74 @@
 {
-  "name": "continens-UI",
+  "name": "continens",
   "version": "0.0.1",
-  "description": "",
-  "main": "./lib/index.js",
-  "keywords": [
-    "shopee",
-    "UI"
+  "description": "A react library developed with tailwind css",
+  "license": "MIT",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
   ],
   "scripts": {
-    "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public",
-    "build": "NODE_ENV=production TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" npx webpack --config webpack.config.js",
-    "tsc": "tsc",
-    "tsc:build": "rm -rf ./lib && tsc && rm -f ./lib/**/proptype.js",
-    "type-check": "tsc --noEmit"
+    "build": "father build",
+    "build:watch": "father dev",
+    "dev": "dumi dev",
+    "docs:build": "dumi build",
+    "doctor": "father doctor",
+    "lint": "npm run lint:es && npm run lint:css",
+    "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
+    "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
+    "prepare": "husky install && dumi setup",
+    "prepublishOnly": "father doctor && npm run build",
+    "start": "npm run dev"
   },
-  "author": "ChenTong",
-  "license": "MIT",
-  "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{md,json}": [
+      "prettier --write --no-error-on-unmatched-pattern"
+    ],
+    "*.{css,less}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --parser=typescript --write"
+    ]
   },
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "@babel/preset-react": "^7.0.0",
-    "@material-ui/core": "^3.9.3",
-    "@material-ui/icons": "^3.0.2",
-    "@storybook/addon-actions": "^5.0.10",
-    "@storybook/addon-knobs": "^5.0.10",
-    "@storybook/addon-links": "^5.0.10",
-    "@storybook/addon-notes": "^5.0.10",
-    "@storybook/addons": "^5.0.10",
-    "@storybook/react": "^5.0.10",
-    "@types/storybook__react": "^4.0.1",
-    "@types/styled-jsx": "^2.2.8",
-    "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.5",
-    "babel-plugin-wildcard": "^5.0.0",
-    "clean-webpack-plugin": "^2.0.1",
-    "css-loader": "^2.1.1",
-    "echarts": "^4.2.1",
-    "eslint": "^5.16.0",
-    "eslint-plugin-react": "^7.12.4",
-    "file-loader": "^3.0.1",
-    "lodash": "^4.17.11",
-    "node-sass": "^4.12.0",
-    "sass-loader": "^7.1.0",
-    "storybook-addon-material-ui": "^0.9.0-alpha.18",
-    "storybook-readme": "^5.0.2",
-    "style-loader": "^0.23.1",
-    "styled-jsx": "^3.2.1",
-    "ts-loader": "^6.0.0",
-    "typescript": "^3.4.5",
-    "url-loader": "^1.1.2",
-    "webpack": "^4.30.0",
-    "webpack-cli": "^3.3.0"
-  }
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@umijs/lint": "^4.0.0",
+    "dumi": "^2.0.2",
+    "eslint": "^8.23.0",
+    "father": "^4.1.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "prettier-plugin-organize-imports": "^3.0.0",
+    "prettier-plugin-packagejson": "^2.2.18",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "stylelint": "^14.9.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "web_chentong@163.com"
+  ]
 }

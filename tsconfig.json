@@ -1,27 +1,16 @@
 {
   "compilerOptions": {
-    "outDir": "lib",
-    "module": "es2015",
-    "target": "es5",
-    "lib": ["es5", "es6", "es7", "es2017", "dom"],
-    "sourceMap": false,
-    "allowJs": false,
+    "strict": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
     "jsx": "react",
-    "moduleResolution": "node",
-    "rootDirs": ["components", "stories"],
-    "baseUrl": "",
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true,
-    "strictNullChecks": false,
-    "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
-    "declaration": false,
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "baseUrl": "./",
+    "paths": {
+      "@@/*": [".dumi/tmp/*"],
+      "continens": ["src"],
+      "continens/*": ["src/*", "*"]
+    }
   },
-  "include": ["components/**/*"],
-  "exclude": ["node_modules", "build", "scripts"]
+  "include": [".dumi/**/*", ".dumirc.ts", "src/**/*"]
 }

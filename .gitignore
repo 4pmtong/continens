@@ -1,7 +1,6 @@
 node_modules
-*.swp
-*.swn
-*.swo
-*.DS_Store
-.vscode
-package-lock.json
+/dist
+.dumi/tmp
+.dumi/tmp-test
+.dumi/tmp-production
+.DS_Store
