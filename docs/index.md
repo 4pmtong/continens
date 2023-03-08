@@ -3,20 +3,18 @@ hero:
   title: Continens
   description: A react library developed with tailwind css
   actions:
-    - text: Getting Started
+    - text: Get Started
       link: /components
     - text: Github
-      link: /
+      link: https://github.com/4pmtong/continens
 features:
   - title: Hello
-    emoji: 💎
-    description: Put hello description here
+    emoji: 🎨
+    description: Common Configuration and Directory Structure aids in Quick Prototyping for new UI Components and their Documentation.
   - title: World
     emoji: 🌈
-    description: Put world description here
+    description: High Performance and Scalability.
   - title: '!'
     emoji: 🚀
-    description: Put ! description here
+    description: Based on tailwind css
 ---
-
-continens
