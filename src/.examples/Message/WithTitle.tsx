@@ -9,7 +9,10 @@ const BasicMessage = () => {
     <div>
       <button
         onClick={() => {
-          message.info('show info message without title');
+          message.info(
+            'show info message with title',
+            'Default message'
+          );
         }}
       >
         default message
@@ -19,7 +22,10 @@ const BasicMessage = () => {
 
       <button
         onClick={() => {
-          message.success('show success message without title');
+          message.success(
+            'show success message without title',
+            'Success message'
+          );
         }}
       >
         success message
@@ -29,7 +35,10 @@ const BasicMessage = () => {
 
       <button
         onClick={() => {
-          message.warning('show warning message without title');
+          message.warning(
+            'show warning message without title',
+            'Warning message'
+          );
         }}
       >
         warning message
@@ -39,7 +48,10 @@ const BasicMessage = () => {
 
       <button
         onClick={() => {
-          message.error('show error message without title');
+          message.error(
+            'show error message without title',
+            'Error message'
+          );
         }}
       >
         error message

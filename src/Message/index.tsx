@@ -1,67 +1,151 @@
-import React, { Fragment, useState, type FC } from 'react';
-
-// const Message: FC<{ title: string }> = (props) => <h4>{props.title}</h4>;
+import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import { Transition } from '@headlessui/react';
-// import { CheckCircleIcon } from '@heroicons/react/24/outline'
-// import { XMarkIcon } from '@heroicons/react/20/solid'
-// import '../tailwind.css';
+import Message, { MessageType } from './message';
 
-const Message: FC<{ title: string }> = (props) => {
-  const [show, setShow] = useState(true);
+export interface MessageApi {
+  info: (text: string, title?: string) => void;
+  success: (text: string, title?: string) => void;
+  warning: (text: string, title?: string) => void;
+  error: (text: string, title?: string) => void;
+}
+
+export interface Notice {
+  text: string;
+  key: string;
+  type: MessageType;
+  title?: string;
+}
+
+
+let seed = 0
+const now = Date.now()
+const getUuid = (): string => {
+  const id = seed
+  seed += 1
+  return `MESSAGE_${now}_${id}`
+}
+
+let add: (notice: Notice) => void
+
+export const MessageContainer = () => {
+  const [notices, setNotices] = useState<Notice[]>([]);
+  const [show, setShow] = useState<boolean>(true);
+
+  const timeout = 3 * 1000;
+  const maxCount = 10;
+
+  const remove = (notice: Notice) => {
+    const { key } = notice;
+
+    setNotices((prevNotices) => (
+      prevNotices.filter(({ key: itemKey }) => key !== itemKey)
+    ));
+  }
+
+  add = (notice: Notice) => {
+    setNotices((prevNotices) => [...prevNotices, notice]);
+    setShow(true);
+
+    // setTimeout(() => {
+    //   remove(notice);
+    // }, timeout);
+  }
+
+  useEffect(() => {
+    if (notices.length > maxCount) {
+      const [firstNotice] = notices
+      remove(firstNotice)
+    }
+  }, [notices]);
 
   return (
-    <>
-      {/* Global notification live region, render this permanently at the end of the document */}
-      <div
+    <div
         aria-live="assertive"
         className="pointer-events-none fixed inset-0 flex items-end px-4 py-6 sm:items-start sm:p-6 z-50"
-      >
-        <div className="flex w-full flex-col items-center space-y-4 sm:items-end">
-          {/* Notification panel, dynamically insert this into the live region when it needs to be displayed */}
-          <Transition
-            show={show}
-            as={Fragment}
-            enter="transform ease-out duration-300 transition"
-            enterFrom="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
-            enterTo="translate-y-0 opacity-100 sm:translate-x-0"
-            leave="transition ease-in duration-100"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <div className="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
-              <div className="p-4">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0">
-                    {/* <CheckCircleIcon className="h-6 w-6 text-green-400" aria-hidden="true" /> */}
-                  </div>
-                  <div className="ml-3 w-0 flex-1 pt-0.5">
-                    <p className="text-sm font-medium text-gray-900">
-                      Successfully saved! {props.title}
-                    </p>
-                    <p className="mt-1 text-sm text-gray-500">
-                      Anyone with a link can now view this file.
-                    </p>
-                  </div>
-                  <div className="ml-4 flex flex-shrink-0">
-                    <button
-                      type="button"
-                      className="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                      onClick={() => {
-                        setShow(false);
-                      }}
-                    >
-                      <span className="sr-only">Close</span>
-                      {/* <XMarkIcon className="h-5 w-5" aria-hidden="true" /> */}
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Transition>
-        </div>
+    >
+      {/* Global notification live region, render this permanently at the end of the document */}
+      <div className="flex w-full flex-col items-center space-y-4 sm:items-end">
+        <Transition show={show} unmount={false}>
+        {
+            notices.map(({ text, key, type, title }) => (
+            <Transition.Child
+              key={key}
+              enter="transform ease-out duration-300 transition"
+              enterFrom="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
+              enterTo="translate-y-0 opacity-100 sm:translate-x-0"
+              leave="transition ease-in duration-100"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+              className='mb-1'
+            >
+              <Message
+                type={type}
+                text={text}
+                title={title}
+              />
+            </Transition.Child>
+          ))
+          }
+          {/* keep transition no to be set to hidden */}
+          <Transition.Child key='always-visible'>
+            <div></div>
+          </Transition.Child>
+        </Transition>
       </div>
-    </>
-  );
-};
+    </div>
+  )
+}
 
-export default Message;
+// init container
+let el = document.querySelector('#message-wrapper');
+if (!el) {
+  el = document.createElement('div')
+  el.className = 'message-wrapper'
+  el.id = 'message-wrapper'
+  document.body.append(el)
+}
+
+ReactDOM.render(
+  <MessageContainer />,
+  el
+);
+
+
+const messageApi: MessageApi = {
+  info: (text, title) => {
+    add({
+      text,
+      title,
+      key: getUuid(),
+      type: 'info'
+    })
+  },
+  success: (text, title) => {
+    add({
+      text,
+      title,
+      key: getUuid(),
+      type: 'success'
+    })
+  },
+  warning: (text, title) => {
+    add({
+      text,
+      title,
+      key: getUuid(),
+      type: 'warning'
+    })
+  },
+  error: (text, title) => {
+    add({
+      text,
+      title,
+      key: getUuid(),
+      type: 'danger'
+    })
+  }
+}
+
+export default messageApi;
+
