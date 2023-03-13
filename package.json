@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "description": "A react library developed with tailwind css",
   "license": "MIT",
+  "homepage": "https://continens.4pmtong.com",
+  "bugs": "https://github.com/4pmtong/continens/issues",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
