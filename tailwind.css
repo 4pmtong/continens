@@ -1,9 +1,11 @@
 /* stylelint-disable */
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* override the tailwind default select height */
 .dumi-default-color-switch select {
-    min-height: 16px;
+  min-height: 16px;
 }
