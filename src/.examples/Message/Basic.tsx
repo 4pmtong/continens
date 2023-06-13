@@ -1,4 +1,8 @@
-import React, { useState } from 'react';
+/**
+ * title: Basic
+ */
+
+import React from 'react';
 
 import { message } from 'continens';
 
@@ -6,7 +10,7 @@ const BasicMessage = () => {
   // const [showMessage, setShowMessage] = useState(false);
 
   return (
-    <div>
+    <div className="flex flex-col items-start">
       <button
         onClick={() => {
           message.info('show info message without title');
@@ -14,8 +18,6 @@ const BasicMessage = () => {
       >
         default message
       </button>
-
-      <br />
 
       <button
         onClick={() => {
@@ -25,8 +27,6 @@ const BasicMessage = () => {
         success message
       </button>
 
-      <br />
-
       <button
         onClick={() => {
           message.warning('show warning message without title');
@@ -34,8 +34,6 @@ const BasicMessage = () => {
       >
         warning message
       </button>
-
-      <br />
 
       <button
         onClick={() => {

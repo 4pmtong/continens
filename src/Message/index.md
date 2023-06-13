@@ -5,8 +5,10 @@ nav:
   title: Components
   order: 1
 group:
-  title: Basic
-  order: 1
+  title: Feedback
+  order: 2
+demo:
+  cols: 2
 ---
 
 # Message
@@ -14,7 +16,6 @@ group:
 Basic
 
 <code src=".examples/Message/Basic.tsx"></code>
-
 
 With Title
 

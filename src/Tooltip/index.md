@@ -5,8 +5,8 @@ nav:
   title: Components
   order: 1
 group:
-  title: Basic
-  order: 2
+  title: Data Display
+  order: 1
 ---
 
 # Tooltip

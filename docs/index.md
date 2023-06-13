@@ -4,7 +4,7 @@ hero:
   description: A react library developed with tailwind css
   actions:
     - text: Get Started
-      link: /components
+      link: /components/message
     - text: Github
       link: https://github.com/4pmtong/continens
 features:
