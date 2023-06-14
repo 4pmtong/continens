@@ -6,7 +6,7 @@ nav:
   order: 1
 group:
   title: Data Display
-  order: 1
+  order: 2
 ---
 
 # Tooltip

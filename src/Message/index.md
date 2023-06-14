@@ -6,17 +6,12 @@ nav:
   order: 1
 group:
   title: Feedback
-  order: 2
+  order: 1
 demo:
   cols: 2
 ---
 
 # Message
 
-Basic
-
 <code src=".examples/Message/Basic.tsx"></code>
-
-With Title
-
 <code src=".examples/Message/WithTitle.tsx"></code>

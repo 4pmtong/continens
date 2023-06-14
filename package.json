@@ -2,9 +2,9 @@
   "name": "continens",
   "version": "0.0.1",
   "description": "A react library developed with tailwind css",
-  "license": "MIT",
   "homepage": "https://continens.4pmtong.com",
   "bugs": "https://github.com/4pmtong/continens/issues",
+  "license": "MIT",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^0.0.0-insiders.9a7dcfc",
+    "@tailwindcss/forms": "^0.5.3",
     "react-transition-group": "^4.4.5",
     "tailwindcss": "^3.2.7"
   },
